@@ -3,21 +3,14 @@ on:
   repository_dispatch:
   workflow_dispatch:
     inputs:
-      custom-version:
-        description: "自定义版本号"
 
 env:
   BUILDER_NAME: RuralHunter
   TZ: Asia/Shanghai
   DEBIAN_FRONTEND: noninteractive
-  SSH_ACTIONS: false
   # PROJECT: Amlogic-ce
   # DEVICE: Amlogic-ng
   ARCH: arm
-  DEVICE: ${{ github.event.inputs.device }}
-  CUSTOM_VERSION: ${{ github.event.inputs.custom-version }}
-  UPLOAD_COWTRANSFER: ${{ github.event.inputs.upload-cowtransfer }}
-  UPLOAD_ARTIFACT: false
 jobs:
   make-image:
     name: Build Image
