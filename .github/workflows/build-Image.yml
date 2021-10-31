@@ -6,3 +6,9 @@ jobs:
   make-image:
     name: Build Image
     runs-on: ubuntu-20.04    
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+  
