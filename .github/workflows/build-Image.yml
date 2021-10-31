@@ -1,3 +1,8 @@
 name: Build IMAGE
 on: 
   repository_dispatch:
+
+jobs:
+  make-image:
+    name: Build Image
+    runs-on: ubuntu-20.04    
