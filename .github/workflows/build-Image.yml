@@ -28,7 +28,7 @@ env:
   DEVICE: ${{ github.event.inputs.device }}
   CUSTOM_VERSION: ${{ github.event.inputs.custom-version }}
   UPLOAD_COWTRANSFER: ${{ github.event.inputs.upload-cowtransfer }}
-  UPLOAD_ARTIFACT: ${{ github.event.inputs.upload-cowtransfer }}
+  UPLOAD_ARTIFACT: false
 jobs:
   make-image:
     name: Build Image
@@ -86,7 +86,7 @@ jobs:
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
       run: |
         curl -fsSL git.io/file-transfer | sh
-        ./transfer cow --block 2621440 -s -p 64 --no-progress target/CoreELEC-*.tar 2>&1 | tee cowtransfer.log
+        ./transfer cow --block 2621440 -s -p 64 --no-progress target/CoreELEC-* 2>&1 | tee cowtransfer.log
         echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
         echo "::set-output name=url::$(cat cowtransfer.log | grep https | cut -f3 -d" ")"
 
