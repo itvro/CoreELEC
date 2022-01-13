@@ -10,7 +10,7 @@ on:
         description: "自定义版本号"
       upload-cowtransfer:
         description: "是否上传奶牛"
-        default: 'true'
+        default: 'false'
       upload-artifact:
         description: "是否上传构建产物"
         default: 'true'
