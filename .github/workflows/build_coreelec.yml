@@ -1,4 +1,4 @@
-name: Build IMAGE NG
+name: Build CoreELEC
 on: 
   repository_dispatch:
   workflow_dispatch:
