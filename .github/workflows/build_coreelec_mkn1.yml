@@ -1,4 +1,4 @@
-name: Build CoreELEC make image
+name: Build CoreELEC mkn1
 on: 
   repository_dispatch:
   workflow_dispatch:
